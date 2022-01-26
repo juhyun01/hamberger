@@ -1,0 +1,72 @@
+:root{
+    --body-bg: crimson;
+    --hamberger-bg: crimson;
+}
+html,
+body{
+    height: 100%;
+}
+body{
+    background: var(--body-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hamberger-title{
+    color: white;
+    font-size: 18px;
+    padding-bottom: 10px;
+}
+
+.hamberger-container{
+    display: inline-block;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: var(--hamberger-bg);
+}
+
+.hamberger,
+.hamberger::before,
+.hamberger::after{
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    transition: 0.5s;
+    background: white;
+}
+
+.hamberger::before,
+.hamberger::after{
+    content: "";
+}
+
+.hamberger{
+    top: 50%;
+}
+
+.hamberger::before{
+    top: -30px;
+}
+
+.hamberger::after{
+    top: 30px;
+}
+
+.toggle:checked ~ .hamberger::after{
+    top:0; 
+    transform: rotate(220deg);
+}
+
+.toggle:checked ~ .hamberger::before{
+    top: 0;
+    transform: rotate(135deg);
+}
+.toggle:checked ~ .hamberger{
+    background: var(--hamberger-bg);
+}
+.toggle{
+    opacity: 0;
+}
